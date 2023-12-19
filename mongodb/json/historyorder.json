@@ -1,0 +1,18 @@
+{
+  "RECORDS": [
+    {
+      "_id": "1",
+      "_class": "com.mongodb.pojo.order",
+      "logistics": "[ { \"orderId\" : { \"$numberInt\" : \"1\" }, \"operation\" : \"运送\", \"operator\" : \"yzy\", \"operationTime\" : { \"$date\" : { \"$numberLong\" : \"1701060895230\" } }, \"address\" : \"太原市\", \"details\" : \"橘子真好吃\" } ]",
+      "orderTime": "27/11/2023 04:54:29.3",
+      "receviePhone": "133333333333",
+      "recevier": "123",
+      "recevierAddress": "太原市",
+      "shipper": "yzy",
+      "shipperPhone": "12222222222",
+      "shippingAdress": "中北",
+      "shipTime": "27/11/2023 04:54:29.3",
+      "status": "运送"
+    }
+  ]
+}

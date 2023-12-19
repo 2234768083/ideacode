@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d6d7814f-97e0-48e4-abba-a9878258adba" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="spring-beans.schema" />
+        <option value="AnnotationType" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\programmer\path\maven\apache-maven-3.9.5\maven_repository" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../path/maven/apache-maven-3.9.5" />
+        <option name="useMavenConfig" value="false" />
+        <option name="userSettingsFile" value="D:\programmer\path\maven\apache-maven-3.9.5\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2WPhU6rw5PbMMDoeFdqduWqwHd0" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/programmer/ideacode/springIocTest1/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "模块",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="nuc.edu.cn.client" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\programmer\ideacode\springIocTest1\src\main\resources" />
+      <recent name="D:\springboot-ideal202324\springIocTest1\src\main\java\nuc\edu\cn\client" />
+      <recent name="D:\springboot-ideal202324\springIocTest1\src\main\java\nuc\edu\cn\service\impl" />
+      <recent name="D:\springboot-ideal202324\springIocTest1\src\main\java\nuc\edu\cn\service" />
+      <recent name="D:\springboot-ideal202324\springIocTest1\src\main\java\nuc\edu\cn\advice" />
+    </key>
+  </component>
+  <component name="RunManager" selected="应用程序.TestAOP">
+    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="nuc.edu.cn.client.Client" />
+      <module name="springIocTest1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="nuc.edu.cn.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainClass (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="src.MainClass" />
+      <module name="springIocTest1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="src.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="src.MainClass" />
+      <module name="springIocTest1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="src.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="src.Test" />
+      <module name="springIocTest1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="src.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestAOP" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="nuc.edu.cn.client.TestAOP" />
+      <module name="springIocTest1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="nuc.edu.cn.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="应用程序.TestAOP" />
+        <item itemvalue="应用程序.Client" />
+        <item itemvalue="应用程序.MainClass (1)" />
+        <item itemvalue="应用程序.MainClass" />
+        <item itemvalue="应用程序.Test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d6d7814f-97e0-48e4-abba-a9878258adba" name="Default Changelist" comment="" />
+      <created>1696640134663</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1696640134663</updated>
+      <workItem from="1696640136023" duration="5471000" />
+      <workItem from="1699340656437" duration="701000" />
+      <workItem from="1699341371991" duration="6100000" />
+      <workItem from="1699410072595" duration="507000" />
+      <workItem from="1699676842553" duration="1759000" />
+      <workItem from="1700035384284" duration="9000" />
+      <workItem from="1700192655265" duration="806000" />
+      <workItem from="1700202099993" duration="68000" />
+      <workItem from="1700204581085" duration="16000" />
+      <workItem from="1700213387424" duration="366000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

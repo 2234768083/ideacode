@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!--缓存：内存中的临时数据，减少和数据库交互次数，提高执行效率
+适用场景：（1）经常查询并且不经常改变的；（2）数据正确与否对最终结果影响不大
+不使用场景：（1）数据经常改动；（2）对最终结果影响大-->
+    <!--一级缓存：mybatis中SqlSession对象的缓存，执行查询后，查询结果会同时存储到
+    sqlsession提供的一块存储区域中，当执行相同查询时，sqlsession先到存储区域中查询是否
+    存在，如果存在直接返回，当sqlsession对象消失时，mybatis一级缓存消失
+    springboot 整合后要想支持一级缓存，就得要保证在这些sql语句全部执行完以后，
+    再去执行commit()方法，也就是说，我们的方法必须要在同一个事务内，才会支持-->
+    <!--二级缓存：同一个SqlSessionFactory对象的缓存，由同一个SqlSessionFactory
+    创建的sqlsession对象所共享-->
+   <settings>
+       <setting name="cacheEnabled" value="true"/>
+       <setting name="mapUnderscoreToCamelCase" value="true"/>
+       <!--打开延迟加载开关-->
+       <setting name="lazyLoadingEnabled" value="true"/>
+       <!--将积极加载改为消极加载即按需加载-->
+       <setting name="aggressiveLazyLoading" value="false"/>
+   </settings>
+    <typeAliases>
+        <package name="nuc.edu.pojo"/>
+    </typeAliases>
+
+</configuration>

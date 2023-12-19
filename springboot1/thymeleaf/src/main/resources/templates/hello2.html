@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>
+    <p>Name: <span th:text="${user.name}">Jack</span>.</p>
+    <p>Age: <span th:text="${user.age}">21</span>.</p>
+    <p>friend: <span th:text="${user.friend.name}">Rose</span>.</p>
+    <span th:text="${user.name} ?: '二狗'"></span>
+</h2>
+<h2 th:object="${user}">
+    <p>Name: <span th:text="*{name}">Jack</span>.</p>
+    <p>Age: <span th:text="*{age}">21</span>.</p>
+    <p>friend: <span th:text="*{friend.name}">Rose</span>.</p>
+</h2>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="nuc.edu.mybatis.dao.IUserDao">
+    <!--支持user二级缓存配置-->
+    <cache></cache>
+      <!--配置查询结果列名和实体属性的对应关系-->
+    <resultMap id="userMap" type="userc">
+        <!--配置主键的对应关系-->
+        <id property="userId" column="id"/>
+        <!--非主键字段的对应关系-->
+        <result property="userSex" column="sex"/>
+    </resultMap>
+    <sql id="collectionIds">
+        <if test="ids!=null and ids.size()>0">
+            <foreach open="id in (" close=")" item="userid" separator="," collection="ids">
+                id=#{userid}
+            </foreach>
+        </if>
+    </sql>
+
+    <!--查询所有用户-->
+    <select id="findAll" resultType="UsEr">
+        select * from user
+
+    </select>
+    <!--插入用户数据-->
+    <insert id="insertUser" parameterType="User">
+        <!--获取插入后数据的id-->
+        <selectKey keyProperty="id" keyColumn="id" resultType="int" order="AFTER">
+            select last_insert_id();
+        </selectKey>
+        insert into user(username,password,realname,sex,dept_id)
+        values(#{username},#{password},#{realname},#{sex},#{dept_id})
+    </insert>
+
+    <!--更新用户-->
+    <update id="updateUser" parameterType="User">
+    update user set username=#{username} where id=#{id}
+</update>
+    <!--删除用户 ，如果只有一个参数，占位符可以任意使用-->
+    <delete id="deleteUserById" parameterType="int">
+    delete from user where id=#{uid}
+</delete>
+    <!--根据id查询用户信息-->
+    <select id="findUserById" parameterType="java.lang.Integer" resultType="nuc.edu.mybatis.Entity.User" useCache="true">
+        select * from user where id=#{id}
+    </select>
+    <!--根据姓名查询用户信息 select * from user where username like '%${value}%' select * from user where username like #{username} -->
+    <select id="findUserByName" parameterType="java.lang.String" resultType="nuc.edu.mybatis.Entity.User">
+       select * from user where username like '%${value}%'
+    </select>
+    <!--统计用户数-->
+    <select id="totalCount" resultType="int">
+        select count(*) from user
+    </select>
+    <!--包装类查询，参数使用OGNL表达式-->
+    <select id="findUserList" parameterType="nuc.edu.mybatis.Entity.queryVO" resultType="nuc.edu.mybatis.Entity.User">
+        select * from user where username like #{user.username}
+    </select>
+    <!--字段不匹配测试resultMap="userMap" select id as userId,username as userName,sex as userSex from user;-->
+    <select id="findAllUserC" resultMap="userMap">
+        select * from user
+    </select>
+<!--根据不确定条件查询-->
+    <select id="findUserByCondition" parameterType="User" resultType="nuc.edu.mybatis.Entity.User">
+        select * from user where 1=1
+        <if test="username !=null">
+            and username=#{username}
+        </if>
+        <if test="sex!=null">
+            and sex=#{sex}
+        </if>
+       <!-- select * from user
+        <where>
+            <if test="username !=null">
+                and username=#{username}
+            </if>
+            <if test="sex!=null">
+                and sex=#{sex}
+            </if>
+        </where>-->
+    </select>
+
+    <!--查询指定范围内数据-->
+<select id="findUserinIds" parameterType="queryVO" resultType="user">
+    select * from user
+    <where>
+        <if test="ids!=null and ids.size()>0">
+            <foreach collection="ids" item="user_id" open=" id in(" close=")" separator=",">
+                id=#{user_id}
+            </foreach>
+        </if>
+    </where>
+</select>
+</mapper>

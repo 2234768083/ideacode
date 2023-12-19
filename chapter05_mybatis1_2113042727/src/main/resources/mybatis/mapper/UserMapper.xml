@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="nuc.edu.cn.chapter05_mybatis1_2113042727.dao.IUserDao">
+    <select id="getUser"
+            parameterType="Integer"
+            resultType="nuc.edu.cn.chapter05_mybatis1_2113042727.pojo.User">
+        select id,user_name as userName,note from t_user where id=#{id}
+    </select>
+
+    <select id="findAllUser"
+            resultType="nuc.edu.cn.chapter05_mybatis1_2113042727.pojo.User">
+        select id,user_name as userName,note from t_user
+    </select>
+
+    <select id="findUsers"
+            resultType="nuc.edu.cn.chapter05_mybatis1_2113042727.pojo.User">
+        select id,user_name as userName,note
+        from t_user
+        where user_name like concat('%',#{userName},'%')
+          and note like concat('%',#{note},'%')
+    </select>
+
+    <insert id="insertUser"
+    parameterType="nuc.edu.cn.chapter05_mybatis1_2113042727.pojo.User"
+    useGeneratedKeys="true"
+    keyProperty="id">
+    insert into t_user(user_name,note) values(#{userName},#{note})
+</insert>
+
+<delete id="deleteUser" parameterType="Integer">
+delete from t_user where id=#{id}
+</delete>
+    <!-- 更新用户信息的 SQL 映射 -->
+    <update id="updateUser" parameterType="nuc.edu.cn.chapter05_mybatis1_2113042727.pojo.User">
+        UPDATE t_user
+        SET
+            user_name = #{userName},
+            note = #{note}
+        WHERE
+            id = #{id}
+    </update>
+        </mapper>

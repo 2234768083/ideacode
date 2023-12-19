@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="nuc.edu.mapper.UserMapper">
+
+    <resultMap id="UserOrderResultMap" type="User">
+    <id column="id" property="id"></id>
+        <result column="username" property="userName"></result>
+        <result column="sex" property="sex"></result>
+        <collection property="ordersList" ofType="Orders" select="nuc.edu.mapper.OrdersMapper.findOrderId" column="id">
+        </collection>
+    </resultMap>
+    <!--定义resultMap
+    type:resultMap最终映射的java对象类型，可以使用别名
+    id:resultMap的唯一标识
+    -->
+
+    <resultMap id="userResultMap" type="nuc.edu.pojo.User">
+        <!--id表示查询结果集中的唯一标识
+        column:查询出来的列名
+        property：type中指定的pojo中的属性名
+        resultMap实现column和property映射-->
+        <id column="user_id" property="id"/>
+        <!--result对普通列实现映射-->
+        <result column="user_name" property="df"/>
+    </resultMap>
+    <!--使用foreach遍历传入的ids
+           collection：指定输入对象中的集合属性
+           item：每个遍历生成对象
+           open：开始遍历时要拼接的串
+           close:结束遍历时要拼接的串-->
+    <!--实现 and id in (1,10,40) open="and id in(" close=")" separator=","
+    实现 id=1 or id=10 or id=40-->
+    <sql id="query_user_where">
+        <if test="userCustomer!=null">
+            <if test="userCustomer.sex!=null and userCustomer.sex!=''">
+                user.sex=#{userCustomer.sex}
+            </if>
+            <if test="userCustomer.userName!=null and userCustomer.userName!=''">
+                and user.user_name like '%${userCustomer.userName}%'
+            </if>
+            <if test="ids!=null">
+                <foreach collection="ids" item="user_id" open="and (" close=")" separator="or">
+                    id=#{user_id}
+                </foreach>
+            </if>
+        </if>
+    </sql>
+
+
+    <!--用户信息综合查询
+    #{userCustomer.sex}:取出pojo包装对象中用户sex
+    测试查询部分字段 select id,user_name,birthday,address
+    测试字段别名问题：select id user_id,username,birthday,address
+    /* where user.sex=#{userCustomer.sex} and user.user_name like '%${userCustomer.userName}%'*/
+    <where>
+                <include refid="query_user_where"></include>
+            </where>
+    -->
+    <select id="findUserList" parameterType="UserQueryVo" resultType="UserCustomer">
+        select id user_id,user_name,birthday,address from user
+        <where>
+            <include refid="query_user_where"></include>
+        </where>
+    </select>
+    <!--count查询-->
+    <select id="findUserCount" parameterType="UserQueryVo" resultType="int">
+        select count(*) from user
+        <where>
+            <include refid="query_user_where"></include>
+        </where>
+    </select>
+
+    <select id="findById" parameterType="int" resultType="User">
+        select id ,username ,birthday,address from user where user.id=#{id}
+    </select>
+    <select id="findAllUser" resultMap="UserOrderResultMap">
+        select * from user
+    </select>
+
+</mapper>

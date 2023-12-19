@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+    <!--    <bean id="userService" class="nuc.edu.cn.service.impl.UserServiceImpl">-->
+<!--      <property name="userDao" ref="userDao"></property>-->
+<!--    </bean>-->
+
+<!--    <bean id="userDao" class="nuc.edu.cn.dao.impl.UserDaoImpl">-->
+<!--    </bean>-->
+      <context:component-scan base-package="nuc.edu.cn"/>
+
+    <!-- 开启基于@AspectJ切面的注解处理器 -->
+    <aop:aspectj-autoproxy/>
+</beans>

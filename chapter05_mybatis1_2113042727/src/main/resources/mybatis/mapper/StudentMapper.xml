@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+        namespace="nuc.edu.cn.chapter05_mybatis1_2113042727.dao.IStudentDao">
+    <resultMap id="stuMap"
+               type="nuc.edu.cn.chapter05_mybatis1_2113042727.pojo.Student">
+        <id property="id" column="stu_id"/>
+        <result property="name" column="stu_name"/>
+        <result property="mobile" column="mobile"/>
+        <collection property="roleList" column="stu_id"
+                    javaType="ArrayList"
+                    ofType="nuc.edu.cn.chapter05_mybatis1_2113042727.pojo.Role"
+                    select="nuc.edu.cn.chapter05_mybatis1_2113042727.dao.IStudentRoleDao.getRolesByStuId">
+            <id property="id" column="id"/>
+            <result property="name" column="name"/>
+        </collection>
+    </resultMap>
+    <select id="findById" parameterType="Integer" resultMap="stuMap">
+        select *
+        from student
+        where stu_id = #{id}
+    </select>
+</mapper>

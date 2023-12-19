@@ -1,0 +1,32 @@
+{
+  "RECORDS": [
+    {
+      "_id": "123",
+      "_class": "com.mongodb.pojo.user",
+      "address": "榆次",
+      "age": "123",
+      "codeNum": "1111111111111",
+      "createDate": "26/11/2023 12:22:19.663",
+      "name": "123",
+      "nickname": "123",
+      "phone": "12222222222222222222",
+      "school": "太原理工",
+      "sex": "123",
+      "user": "[ { \"_id\" : { \"$numberInt\" : \"0\" }, \"age\" : { \"$numberInt\" : \"0\" }, \"_class\" : \"com.mongodb.pojo.user\" } ]"
+    },
+    {
+      "_id": "1",
+      "_class": "com.mongodb.pojo.user",
+      "address": "中北",
+      "age": "18",
+      "codeNum": "123456789",
+      "createDate": "27/11/2023 04:51:50.775",
+      "name": "yzy",
+      "nickname": "y",
+      "phone": "12222222222",
+      "school": "中北大学",
+      "sex": "男",
+      "user": "[ { \"_id\" : { \"$numberInt\" : \"0\" }, \"age\" : { \"$numberInt\" : \"0\" }, \"_class\" : \"com.mongodb.pojo.user\" } ]"
+    }
+  ]
+}

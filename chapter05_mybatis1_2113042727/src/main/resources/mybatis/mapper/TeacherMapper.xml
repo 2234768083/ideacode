@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="nuc.edu.cn.chapter05_mybatis1_2113042727.dao.IMyClassDao">
+    <!-- 一、嵌套结果
+    使用嵌套结果映射来处理重复的联合结果的子集
+    可以理解为封装联表查询的数据(去除重复的数据)
+    select * from class c, teacher t
+    where c.teacher_id=t.t_id and c.c_id=1
+    -->
+    <!--根据id查询到一个班级信息（带老师信息） -->
+    <resultMap type="nuc.edu.cn.chapter05_mybatis1_2113042727.pojo.MyClass"
+               id="MyClassResultMap">
+        <id property="id" column="c_id"></id>
+        <result property="name" column="c_name"/>
+        <association property="teacher" column="teacher_id"
+                     javaType="nuc.edu.cn.chapter05_mybatis1_2113042727.pojo.Teacher">
+            <id property="id" column="t_id"/>
+            <result property="name" column="t_name"/>
+        </association>
+    </resultMap>
+    <!-- 这里使用association标签，
+    association用于一对一的关联查询
+    property - 对象属性的名称
+    javaType - 对象属性的类型
+    column - 所对应的外键字段名称
+    select - 使用另一个查询封装的结果 -->
+    <select id="getMyClass" parameterType="Integer" resultMap="MyClassResultMap">
+        select *
+        from class c,
+             teacher t
+        where c.teacher_id = t.t_id
+          and c.c_id = #{id}
+    </select>
+    <!-- 第二种方法
+    二、嵌套查询
+    通过执行另外一个SQL 映射语句来返回预期的复杂类型
+    -->
+    <select id="getMyClass2" parameterType="Integer" resultMap="MyClassResultMap2">
+        select *
+        from class
+        where c_id = #{id}
+    </select>
+    <resultMap type="nuc.edu.cn.chapter05_mybatis1_2113042727.pojo.MyClass"
+               id="MyClassResultMap2">
+        <id property="id" column="c_id"/>
+        <result property="name" column="c_name"/>
+        <association property="teacher" column="teacher_id"
+                     javaType="nuc.edu.cn.chapter05_mybatis1_2113042727.pojo.Teacher"
+                     select="getTeacher">
+        </association>
+    </resultMap>
+    <!-- 使用了sql别名 -->
+    <select id="getTeacher" parameterType="Integer"
+            resultType="nuc.edu.cn.chapter05_mybatis1_2113042727.pojo.Teacher">
+        select t_id id, t_name name
+        from teacher
+        where t_id = #{id}
+    </select>
+    <!--
+    这里使用了association标签的select属性，
+    其值对应为<select id="getTeacher" ...>中的id的值
+     这种方式，同样可以得到正确的结果 -->
+</mapper>

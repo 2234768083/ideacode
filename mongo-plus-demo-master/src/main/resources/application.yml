@@ -1,0 +1,33 @@
+server:
+  port: 9527
+  servlet:
+    context-path: /mongo-plus
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+mongo-plus:
+  data:
+    mongodb:
+      host: 101.43.238.102,101.43.238.102
+      port: 27017,27018
+      database: mp
+      connectTimeoutMS: 50000
+      retryWrites: true
+      w: majority
+      replicaSet: mp
+  log: true
+  configuration:
+    collection:
+      mapping-strategy: CLASS_NAME
+  spring:
+    transaction: true
+logging:
+  level:
+    com:
+      anwen:
+        mongo:
+          transactional:
+            MongoTransactionalManager: debug

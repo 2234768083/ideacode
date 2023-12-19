@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="nuc.edu.cn.chapter05_mybatis1_2113042727.dao.IEmpDao">
+    <resultMap id="empMap" type="nuc.edu.cn.chapter05_mybatis1_2113042727.pojo.Emp">
+        <id property="empno" column="empno"/>
+        <result property="ename" column="ename"/>
+        <result property="job" column="job"/>
+        <result property="mgr" column="mgr"/>
+        <result property="hiredate" column="hiredate"/>
+        <result property="sal" column="sal"/>
+        <result property="comm" column="comm"/>
+        <!--association:一对一关联映射
+        根据empno先读取用户信息，然后再读取这个用户所属的部门信息
+         -->
+        <association property="dept"
+                     javaType="nuc.edu.cn.chapter05_mybatis1_2113042727.pojo.Dept">
+            <id property="deptno" column="deptno"/>
+            <result property="dname" column="dname"/>
+            <result property="location" column="loc"/>
+        </association>
+    </resultMap>
+    <!--根据empno查询员工，关联Dept表 -->
+    <select id="findByEmpno" parameterType="Integer" resultMap="empMap">
+        select *
+        from emp e,
+             dept d
+        where e.deptno = d.deptno
+          and e.empno = #{empno}
+    </select>
+    <!--根据deptno查询员工-->
+    <select id="findByDeptno" parameterType="Integer"
+            resultType="nuc.edu.cn.chapter05_mybatis1_2113042727.pojo.Emp">
+        select *
+        from emp
+        where deptno = #{deptno}
+    </select>
+</mapper>

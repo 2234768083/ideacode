@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="自动导出项目代码到文本文档">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/main/resources/自动导出项目代码到文本文档.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
